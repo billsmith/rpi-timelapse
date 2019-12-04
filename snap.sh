@@ -4,4 +4,8 @@ mkdir -p /ram/imgur /ram/gcloud
 
 DATE=$(date +%Y-%m-%d_%H%M)
 
-raspistill --width 2464 --height 3280 --rotation 270 -o /ram/imgur/$DATE.jpg && ln /ram/imgur/$DATE.jpg /ram/gcloud/$DATE.jpg
+FILE="/ram/gcloud/$DATE.jpg"
+if ! raspistill --width 2464 --height 3280 --rotation 270 -o ${FILE}; then
+    # avoid empty or partial image files
+    rm "${FILE}"
+fi

@@ -21,6 +21,7 @@
 # 
 # m h  dom mon dow   command
 0,15,30,45 * * * * /home/pi/snap.sh
-5,20,35,50 * * * * /usr/bin/flock -n /tmp/fcj.lockfile /home/pi/imgur-upload.sh
+# I no longer upload to imgur.  See the README for details.
+#5,20,35,50 * * * * /usr/bin/flock -n /tmp/fcj.lockfile /home/pi/imgur-upload.sh
 10,25,40,55 * * * * /usr/bin/flock -n /tmp/fcj.lockfile /home/pi/gcloud-upload.sh
 @reboot sudo -u root noip2
